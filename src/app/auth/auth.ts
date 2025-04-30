@@ -5,14 +5,6 @@ import client from "@/lib/authdb"
 import bcrypt from "bcryptjs"
 import Credentials from "next-auth/providers/credentials"
 
-interface User {
-  id: string
-  name:string
-  email:string
-  role?: string
-  provider?: string
-  providerAccountId?: string
-}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: {
