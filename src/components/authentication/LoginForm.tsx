@@ -60,6 +60,7 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
         router.push(callbackUrl);
       }
     } catch (err) {
+      console.log('error');
       setError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);

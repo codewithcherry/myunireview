@@ -6,7 +6,7 @@ import authConfig from "@/app/auth/auth.config";
 
 const { auth } = NextAuth(authConfig);
 
-const publicRoutes = ["/", "/login", "/register"];
+// const publicRoutes = ["/", "/login", "/register"];
 const protectedRoutes = [
   "/api/user",
   "/user",
