@@ -41,7 +41,7 @@ const AvatarDropDownMenu: React.FC = () => {
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            Billing
+            Notifications
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
