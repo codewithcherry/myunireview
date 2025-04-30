@@ -1,10 +1,10 @@
 "use client";
 
 import { LoginForm } from "@/components/authentication/LoginForm";
-import { GalleryVerticalEnd } from "lucide-react";
-import React from "react";
+import { GalleryVerticalEnd, Loader2 } from "lucide-react";
+import React, { Suspense } from "react";
 
-const page = () => {
+const LoginPage = () => {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
       <div className="flex w-full max-w-sm flex-col gap-6">
@@ -14,9 +14,9 @@ const page = () => {
           </div>
           <div className="flex-shrink-0 flex items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
-              <span className=" transition-transform duration-200 inline-block">My</span>
-              <span className=" transition-transform duration-200 inline-block">Uni</span>
-              <span className=" transition-transform duration-200 inline-block">Review</span>
+              <span className="transition-transform duration-200 inline-block">My</span>
+              <span className="transition-transform duration-200 inline-block">Uni</span>
+              <span className="transition-transform duration-200 inline-block">Review</span>
             </h1>
           </div>
         </a>
@@ -26,4 +26,12 @@ const page = () => {
   );
 };
 
-export default page;
+const Page = () => {
+  return (
+    <Suspense fallback={<Loader2 className="w-4 h-4 animate-spin text-gray-500" />}>
+      <LoginPage />
+    </Suspense>
+  );
+};
+
+export default Page;
