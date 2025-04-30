@@ -39,6 +39,7 @@ export function RegisterForm({
       setEmail('');
       setPassword('');
       console.log(response.data);
+      router.push("/login");
     } catch (error) {
       console.log(error);
     }
@@ -155,7 +156,7 @@ export function RegisterForm({
                   )}
             </div>
             <Button type="submit" className="w-full">
-              Register
+             {registerLoading? <span className="text-md"><Loader2 className="w-4 h-4 animate-spin text-slate-600"/>Registering</span>:"Register"}
             </Button>
           </div>
           <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
