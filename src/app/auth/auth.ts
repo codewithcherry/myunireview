@@ -76,7 +76,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     ...authConfig.providers,
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user, account}) {
       // For OAuth providers (Google, GitHub, etc.)
       if (account?.provider !== "credentials") {
         if (!user.email) return false;
@@ -109,7 +109,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       
       return true;
     },
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, user}) {
       if (user) {
         token.id = user.id
         token.role = user.role || "user"

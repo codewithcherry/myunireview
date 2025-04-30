@@ -5,7 +5,7 @@ export default {
   providers: [Google],
   session: { strategy: "jwt" },
   callbacks:{
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id
         token.role = user.role || "user"

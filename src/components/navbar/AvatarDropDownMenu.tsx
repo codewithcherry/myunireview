@@ -4,7 +4,6 @@ import React from "react";
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage,
 } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -33,7 +32,6 @@ import {
   LifeBuoy,
   LogOut,
   Mail,
-  ChevronRight,
   CreditCard,
   Users
 } from "lucide-react";
