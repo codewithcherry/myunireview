@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
                   <ul className="list-disc pl-6 space-y-1 text-gray-700 dark:text-gray-300">
                     <li><strong>Personal Information:</strong> Name, email, university details, and profile information.</li>
                     <li><strong>Usage Data:</strong> IP address, browser type, pages visited, and interaction with our platform.</li>
-                    <li><strong>Cookies & Tracking:</strong> We use cookies to enhance your experience (you can disable them in browser settings).</li>
+                    <li><strong>Cookies &amp; Tracking:</strong> We use cookies to enhance your experience (you can disable them in browser settings).</li>
                   </ul>
                 </section>
 
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
 
                 <section>
                   <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                    3. Data Sharing & Disclosure
+                    3. Data Sharing &amp; Disclosure
                   </h2>
                   <p className="text-gray-700 dark:text-gray-300">
                     We do <strong>not</strong> sell your personal data. We may share information with:
@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
 
                 <section>
                   <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                    7. Children's Privacy
+                    7. Children&rsquo;s Privacy
                   </h2>
                   <p className="text-gray-700 dark:text-gray-300">
                     Our services are not intended for users under <strong>16</strong>. We do not knowingly collect data from children.
