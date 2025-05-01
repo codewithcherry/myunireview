@@ -12,7 +12,7 @@ const studentAvatars = [
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="container mx-auto px-4 py-12 md:py-24 bg-white dark:bg-zinc-900">
+    <section className="container mx-auto px-4 py-12 md:py-24 dark:bg-zinc-900">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text Content */}
         <div className="md:w-1/2 space-y-6">
