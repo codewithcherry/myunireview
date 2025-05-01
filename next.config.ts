@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       'lh3.googleusercontent.com', // Main Google user content domain
       'lh4.googleusercontent.com',
       'lh5.googleusercontent.com',
+      'img.freepik.com',
+      'www.shutterstock.com',
       'lh6.googleusercontent.com',
       '*.googleusercontent.com', // Wildcard for all subdomains
       'platform-lookaside.fbsbx.com', // Facebook CDN
