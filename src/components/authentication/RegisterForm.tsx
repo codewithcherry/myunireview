@@ -52,13 +52,11 @@ export function RegisterForm({
         }
       });
 
-      if (response.data.success) {
+      
         setEmail('');
         setPassword('');
-        router.push("/login");
-      } else {
-        setError(response.data.message || "Registration failed");
-      }
+        setError("User Created Successfully!! login using credentials.")
+
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setError(error.response?.data?.message || "An error occurred during registration");
