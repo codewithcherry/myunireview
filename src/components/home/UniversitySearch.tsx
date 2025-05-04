@@ -223,26 +223,39 @@ export default function UniversitySearch() {
     });
   };
 
+  // Close popovers on click outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setOpenUniversityPopover(false);
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="w-full max-w-6xl mx-auto mt-10">
-      <div className="text-center mb-8">
+    <div className="w-full max-w-6xl mx-auto my-6 px-4 md:my-10 md:px-0">
+      <div className="text-center mb-6 md:mb-8">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <School className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <School className="w-6 h-6 md:w-8 md:h-8 text-indigo-600 dark:text-indigo-400" />
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Find Your University
           </h1>
-          <GraduationCap className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+          <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Discover the perfect institution for your academic journey
         </p>
       </div>
-      <div className="relative bg-white dark:bg-zinc-900 rounded-full shadow-lg  border border-gray-100 dark:border-zinc-800">
-        <div className="flex flex-col md:flex-row items-center">
-          {/* University Name Search - Fixed version */}
-          <div className="w-full md:w-auto md:flex-1 px-6 py-4 border-b md:border-b-0 md:border-r border-gray-100 dark:border-zinc-800">
+      
+      <div className="relative bg-white dark:bg-zinc-900 rounded-xl md:rounded-full shadow-lg border border-gray-100 dark:border-indigo-500 ">
+        <div className="flex flex-col md:flex-row items-center justify-around">
+          {/* University Name Search */}
+          <div className="w-full  md:flex-1 px-4 md:px-6 py-3 md:py-4 border-b md:border-b-0 md:border-r border-gray-100 dark:border-zinc-700">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3">
+              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3 whitespace-nowrap">
                 University
               </span>
               <div className="relative flex-1">
@@ -255,26 +268,27 @@ export default function UniversitySearch() {
                     setOpenUniversityPopover(e.target.value.length > 0);
                   }}
                   onFocus={() => setOpenUniversityPopover(true)}
-                  className="w-full border-0 p-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-base bg-transparent"
+                  className="w-full bg-gray-50 border-0 py-1 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 text-sm md:text-base "
                 />
 
                 {/* Custom Suggestions Dropdown */}
                 {openUniversityPopover && universitySuggestions.length > 0 && (
-                  <div className="absolute z-[9999] w-full mt-1 bg-white dark:bg-zinc-800 rounded-md shadow-lg border border-gray-200 dark:border-zinc-700 ">
+                  <div className="absolute z-50 left-0 right-0 w-full mt-1 bg-white dark:bg-zinc-800 rounded-md shadow-lg border border-gray-200 dark:border-indigo-500">
                     <div className="max-h-60 overflow-y-auto">
                       {universitySuggestions.map((university) => (
                         <div
                           key={university.id}
-                          className="px-4 py-1  hover:bg-gray-100 dark:hover:bg-zinc-700 cursor-pointer flex items-center justify-between "
-                          onClick={() => {
+                          className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-zinc-700 cursor-pointer flex items-center justify-between"
+                          onClick={(e) => {
+                            e.stopPropagation();
                             setUniversitySearch(university.name);
                             setOpenUniversityPopover(false);
                           }}
                         >
-                          <span className="text-xs text-left">
+                          <span className="text-xs md:text-sm text-left truncate mr-2">
                             {university.name}
                           </span>
-                          <Badge className="ml-2 bg-gray-100  text-gray-800 dark:bg-zinc-700 dark:text-zinc-200">
+                          <Badge className="ml-auto shrink-0 bg-gray-100 text-gray-800 dark:bg-zinc-700 dark:text-zinc-200">
                             {university.country}
                           </Badge>
                         </div>
@@ -285,10 +299,11 @@ export default function UniversitySearch() {
               </div>
             </div>
           </div>
+          
           {/* Country Selection */}
-          <div className="w-full md:w-48 px-6 py-4 border-b md:border-b-0 md:border-r border-gray-100 dark:border-zinc-800">
+          <div className="w-full md:w-54 px-4 md:px-6 py-3 md:py-4 border-b md:border-b-0 md:border-r  border-gray-100 dark:border-zinc-700">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3">
+              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3 whitespace-nowrap">
                 Country
               </span>
               <Select
@@ -297,7 +312,7 @@ export default function UniversitySearch() {
                   setSelectedCountry(value as Country | "any")
                 }
               >
-                <SelectTrigger className="w-full border-0 p-0 shadow-none focus:ring-0 text-base bg-transparent h-auto">
+                <SelectTrigger className="w-full border-0 p-0 shadow-none focus:ring-0 text-sm md:text-base bg-transparent h-auto">
                   <SelectValue placeholder="Any Country" />
                 </SelectTrigger>
                 <SelectContent>
@@ -311,10 +326,11 @@ export default function UniversitySearch() {
               </Select>
             </div>
           </div>
+          
           {/* Course Selection */}
-          <div className="w-full md:w-auto md:flex-1 px-6 py-4">
+          <div className="w-full md:w-auto md:flex-1 px-4 md:px-6 py-3 md:py-4 border-b md:border-b-0 border-gray-100 dark:border-zinc-700">
             <div className="flex items-center">
-              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3">
+              <span className="text-sm font-medium text-gray-500 dark:text-zinc-400 mr-3 whitespace-nowrap">
                 Courses
               </span>
               <div className="flex-1">
@@ -324,7 +340,7 @@ export default function UniversitySearch() {
                 >
                   <PopoverTrigger asChild>
                     <div className="flex items-center space-x-1 cursor-pointer">
-                      <div className="text-base">
+                      <div className="text-sm md:text-base">
                         {selectedCourses.length > 0
                           ? `${selectedCourses.length} course${
                               selectedCourses.length > 1 ? "s" : ""
@@ -353,7 +369,7 @@ export default function UniversitySearch() {
                               className={`ml-auto h-4 w-4 rounded-full border ${
                                 selectedCourses.includes(course.id)
                                   ? "bg-indigo-600 border-indigo-600"
-                                  : "border-gray-300 dark:border-zinc-600"
+                                  : "border-gray-300 dark:border-indigo-500"
                               }`}
                             >
                               {selectedCourses.includes(course.id) && (
@@ -383,50 +399,30 @@ export default function UniversitySearch() {
                 </Popover>
               </div>
             </div>
-
-            {/* Selected Courses Badges (Mobile Only) */}
-            {selectedCourses.length > 0 && (
-              <div className="flex flex-wrap gap-1 mt-2 md:hidden">
-                {selectedCourses.map((courseId) => (
-                  <Badge
-                    key={courseId}
-                    variant="secondary"
-                    className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 text-xs px-2 py-0.5"
-                  >
-                    {getCourseNameById(courseId)}
-                    <button
-                      className="ml-1 rounded-full outline-none"
-                      onClick={() => removeCourse(courseId)}
-                    >
-                      <X className="h-3 w-3" />
-                    </button>
-                  </Badge>
-                ))}
-              </div>
-            )}
           </div>
+          
           {/* Search Button */}
-          <div className="w-full md:w-auto p-2">
+          <div className="w-full md:w-auto p-4 flex justify-center">
             <Button
               onClick={handleSearch}
               className="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-indigo-700 dark:hover:bg-indigo-800 rounded-full px-6"
               size="lg"
             >
-              <Search className="mr-2 h-5 w-5" />
+              <Search className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               <span>Find Uni</span>
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Selected Courses Badges (Desktop) */}
+      {/* Selected Courses Badges (Both Mobile and Desktop) */}
       {selectedCourses.length > 0 && (
-        <div className="hidden md:flex flex-wrap gap-1 mt-2 pl-2">
+        <div className="flex flex-wrap gap-1 mt-3 px-1 md:pl-2">
           {selectedCourses.map((courseId) => (
             <Badge
               key={courseId}
               variant="secondary"
-              className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
+              className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 text-xs px-2 py-1"
             >
               {getCourseNameById(courseId)}
               <button
@@ -438,8 +434,8 @@ export default function UniversitySearch() {
             </Badge>
           ))}
 
-          {/* Sort Option */}
-          <div className="flex items-center ml-2 text-xs text-gray-500 dark:text-zinc-400">
+          {/* Sort Option (Both Mobile and Desktop) */}
+          <div className="flex items-center ml-auto text-xs text-gray-500 dark:text-zinc-400">
             <input
               type="checkbox"
               id="sort-alphabetically"
