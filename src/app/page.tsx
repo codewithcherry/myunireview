@@ -2,6 +2,7 @@
 
 import HeroSection from "@/components/home/HeroSection";
 import HowItWorks from "@/components/home/HowItWorks";
+import Testimonials from "@/components/home/Testimonials";
 import TopUniversities from "@/components/home/TopUniversities";
 import UniversitySearch from "@/components/home/UniversitySearch";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <UniversitySearch />
       <HowItWorks />
       <TopUniversities />   
+      <Testimonials />
     </div>
   );
 }
