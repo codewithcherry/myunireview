@@ -48,11 +48,11 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href={'/'} className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded-md">
+            <Link href={'/'} className=" rounded-md">
               <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
-                <span className="transition-transform duration-200 inline-block hover:scale-105">My</span>
-                <span className="transition-transform duration-200 inline-block hover:scale-105">Uni</span>
-                <span className="transition-transform duration-200 inline-block hover:scale-105">Review</span>
+                <span className=" inline-block ">My</span>
+                <span className=" inline-block ">Uni</span>
+                <span className=" inline-block ">Review</span>
               </h1>
             </Link>
           </div>
