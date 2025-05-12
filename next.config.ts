@@ -12,9 +12,15 @@ const nextConfig: NextConfig = {
       'img.freepik.com',
       'www.shutterstock.com',
       'lh6.googleusercontent.com',
+      "images.shiksha.com",
+      "images.squarespace-cdn.com",
+      "www.georgecollege.org",
+      "www.siecindia.com",
+      "siuk-europe.s3.amazonaws.com",
       '*.googleusercontent.com', // Wildcard for all subdomains
       'platform-lookaside.fbsbx.com', // Facebook CDN
       'avatars.githubusercontent.com' // GitHub avatars
+
     ],
     remotePatterns: [
       {
