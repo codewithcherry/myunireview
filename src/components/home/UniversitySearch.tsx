@@ -1,5 +1,4 @@
 import { School, GraduationCap } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 import SearchBar from "../search/SearchBar";
 
 // Main component
