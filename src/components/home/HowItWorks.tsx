@@ -34,7 +34,7 @@ const HowItWorks:React.FC = () => {
       imageSrc: 'https://img.freepik.com/free-vector/decision-making-abstract-concept_335657-3039.jpg?t=st=1746345695~exp=1746349295~hmac=9f220ea47a9968be832cc7c0a0a03332adb4a04f7dad917fdca8c27ffb7cf984&w=826',
       imageAlt: 'Decision icon',
     },
-  ];
+  ]; 
 
   const router=useRouter();
 
@@ -61,7 +61,7 @@ const HowItWorks:React.FC = () => {
           {/* <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-300 via-indigo-500 to-indigo-300 dark:from-indigo-900 dark:via-indigo-700 dark:to-indigo-900 transform -translate-y-1/2 z-0"></div> */}
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-            {steps.map((step, index) => (
+            {steps.map((step) => (
               <div key={step.id} className="group">
                 <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-xl hover:shadow-xl transition-all duration-300 h-full flex flex-col transform hover:-translate-y-2 p-6">
                   {/* Step Number */}
