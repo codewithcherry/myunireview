@@ -1,6 +1,5 @@
 import React from "react";
-import { 
-  GraduationCap, 
+import {  
   School, 
   BookOpen, 
   Users, 
