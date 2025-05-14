@@ -5,28 +5,21 @@ import {
   Globe, 
   School, 
   Users, 
-  MessageCircle, 
-  Award, 
+  MessageCircle,
   Star, 
-  BookOpen, 
   CheckCircle,
   BarChart3,
-  Building2,
   Plane,
   Heart
 } from "lucide-react";
 import { 
   Card, 
   CardContent, 
-  CardDescription, 
   CardHeader, 
-  CardTitle 
 } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState("mission");
 
   const stats = [
     { icon: School, value: "500+", label: "Universities Listed" },
