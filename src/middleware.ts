@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
   if (isProtected) {
     const session = await auth();
      
-    console.log("middleware session", session);
+    // console.log("middleware session", session);
     
     if (!session?.user || isSessionExpired(session)) {
       const loginUrl = new URL("/login", request.url);

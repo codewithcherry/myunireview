@@ -36,9 +36,12 @@ import {
   Users
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const AvatarDropDownMenu: React.FC = () => {
   const { data: session } = useSession();
+
+  const router=useRouter();
 
   const handleLogout = async () => {
     await signOut({ callbackUrl: '/login' });
@@ -75,7 +78,7 @@ const AvatarDropDownMenu: React.FC = () => {
 
         {/* Main Actions */}
         <DropdownMenuGroup>
-          <DropdownMenuItem className="group">
+          <DropdownMenuItem className="group" onClick={()=>{router.push("/user/profile")}}>
             <User className="mr-2 h-4 w-4 text-indigo-500 group-hover:text-indigo-600" />
             <span>Profile</span>
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>

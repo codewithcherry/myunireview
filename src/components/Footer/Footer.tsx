@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Heart
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -58,7 +58,7 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-950 border-t border-indigo-100 dark:border-indigo-900/50">
       {/* Newsletter Section */}
-      <div className="bg-indigo-50 dark:bg-indigo-900/20 py-12">
+      {/* <div className="bg-indigo-50 dark:bg-indigo-900/20 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">
@@ -81,7 +81,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
